@@ -1,29 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Word Meaning Finder</title>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <style>
-    :root {
-      --bg: #f5f6f1;
-      --panel: #ffffff;
-      --ink: #1f2726;
-      --muted: #65706d;
-      --line: #dce3df;
-      --green: #176b5b;
-      --green-dark: #0f5044;
-      --green-soft: #e2f2ec;
-      --blue: #355f8d;
-      --blue-soft: #e4eef8;
-      --gold: #af7418;
-      --gold-soft: #fff1d7;
-      --rose: #aa3d47;
-      --rose-soft: #fae7e9;
-      --shadow: 0 18px 50px rgba(33, 54, 49, 0.13);
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Domain Temporarily Suspended</title>
+
+  <style>
     * {
       box-sizing: border-box;
     }
@@ -31,996 +14,126 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: linear-gradient(135deg, #f5f6f1 0%, #edf5f1 46%, #f8f0e2 100%);
-    }
-
-    .app {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 34px 0 28px;
-    }
-
-    header {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .topbar {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .brand {
-      display: flex;
-      min-width: 0;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: #f6f7f9;
+      color: #202124;
     }
 
-    .brand > div:last-child {
-      min-width: 0;
+    .container {
+      width: 100%;
+      max-width: 570px;
+      text-align: center;
     }
 
-    .brand-icon {
-      display: grid;
-      width: 46px;
-      min-width: 46px;
-      height: 46px;
-      place-items: center;
-      border-radius: 8px;
-      color: #ffffff;
-      background: var(--green);
-      box-shadow: 0 12px 26px rgba(23, 107, 91, 0.22);
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 26px;
+      border-radius: 50%;
+      background: #eef0f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #5f6368;
     }
 
     h1 {
-      margin: 0;
-      font-size: 3.2rem;
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .subtitle {
-      max-width: 720px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.55;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 11px;
-      color: var(--green-dark);
-      background: rgba(255, 255, 255, 0.78);
-      font-size: 0.88rem;
-      font-weight: 760;
-      white-space: nowrap;
-    }
-
-    .status-badge.offline {
-      color: var(--rose);
-      background: var(--rose-soft);
-    }
-
-    .status-badge i {
-      width: 17px;
-      height: 17px;
-    }
-
-    .search-panel {
-      border: 1px solid rgba(220, 227, 223, 0.95);
-      border-radius: 8px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .input-wrap {
-      position: relative;
-    }
-
-    .input-wrap i {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      width: 21px;
-      height: 21px;
-      transform: translateY(-50%);
-      color: var(--muted);
-      pointer-events: none;
-    }
-
-    input {
-      width: 100%;
-      min-height: 58px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 0 16px 0 50px;
-      color: var(--ink);
-      background: #ffffff;
-      font: inherit;
-      font-size: 1.04rem;
-      outline: none;
-      transition: border-color 160ms ease, box-shadow 160ms ease;
-    }
-
-    input:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 4px rgba(23, 107, 91, 0.12);
-    }
-
-    button {
-      display: inline-flex;
-      min-height: 56px;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      border: 0;
-      border-radius: 8px;
-      padding: 0 22px;
-      color: #ffffff;
-      background: var(--green);
-      font: inherit;
-      font-weight: 760;
-      cursor: pointer;
-      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-      white-space: nowrap;
-    }
-
-    button:hover {
-      background: var(--green-dark);
-      box-shadow: 0 12px 24px rgba(23, 107, 91, 0.2);
-      transform: translateY(-1px);
-    }
-
-    button:disabled {
-      cursor: not-allowed;
-      opacity: 0.7;
-      transform: none;
-      box-shadow: none;
-    }
-
-    button i {
-      width: 20px;
-      height: 20px;
-    }
-
-    .quick-searches {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 14px;
-    }
-
-    .chip {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 12px;
-      color: var(--green-dark);
-      background: #ffffff;
-      font-size: 0.92rem;
-      cursor: pointer;
-      transition: border-color 160ms ease, background 160ms ease;
-    }
-
-    .chip:hover {
-      border-color: var(--green);
-      background: var(--green-soft);
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
-      gap: 18px;
-      margin-top: 18px;
-      align-items: start;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 10px 34px rgba(33, 54, 49, 0.08);
-      overflow: hidden;
-    }
-
-    .word-card {
-      min-height: 390px;
-    }
-
-    .result-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-      border-bottom: 1px solid var(--line);
-      padding: 24px;
-    }
-
-    .word-title {
-      margin: 0 0 8px;
-      font-size: 3.05rem;
-      line-height: 1;
-      overflow-wrap: anywhere;
-    }
-
-    .phonetic {
-      margin: 0;
-      color: var(--gold);
-      font-weight: 760;
-    }
-
-    .lookup-note {
-      display: inline-flex;
-      margin-top: 10px;
-      border-radius: 999px;
-      padding: 6px 10px;
-      color: var(--blue);
-      background: var(--blue-soft);
-      font-size: 0.88rem;
-      font-weight: 760;
-    }
-
-    .result-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-    }
-
-    .icon-button {
-      width: 46px;
-      min-width: 46px;
-      height: 46px;
-      min-height: 46px;
-      border: 1px solid var(--line);
-      padding: 0;
-      color: var(--green);
-      background: #ffffff;
-      box-shadow: none;
-    }
-
-    .icon-button:hover {
-      border-color: var(--green);
-      color: #ffffff;
-      background: var(--green);
-    }
-
-    .sections {
-      display: grid;
-      gap: 18px;
-      padding: 24px;
-    }
-
-    .meaning-block {
-      display: grid;
-      gap: 12px;
-    }
-
-    .part {
-      display: inline-flex;
-      width: fit-content;
-      border-radius: 999px;
-      padding: 5px 10px;
-      color: var(--green-dark);
-      background: var(--green-soft);
-      font-size: 0.86rem;
-      font-weight: 800;
-      text-transform: lowercase;
-    }
-
-    ol {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding-left: 22px;
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    .example {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-style: italic;
-    }
-
-    .side {
-      display: grid;
-      gap: 18px;
-    }
-
-    .mini-card {
-      padding: 22px;
-    }
-
-    .mini-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       margin: 0 0 14px;
-      font-size: 1.06rem;
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: -0.4px;
     }
 
-    .mini-title i {
-      width: 20px;
-      height: 20px;
-      color: var(--green);
+    .description {
+      margin: 0 auto;
+      max-width: 500px;
+      color: #5f6368;
+      font-size: 15px;
+      line-height: 1.7;
     }
 
-    .hindi-word {
-      margin: 0 0 8px;
-      color: var(--green-dark);
-      font-size: 1.55rem;
-      font-weight: 850;
-      line-height: 1.25;
-      overflow-wrap: anywhere;
+    .notice {
+      margin-top: 28px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 10px;
+      color: #5f6368;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.03);
     }
 
-    .hindi-definition {
-      margin: 0;
-      color: var(--ink);
-      line-height: 1.62;
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border-radius: 7px;
+      background: #202124;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: default;
     }
 
-    .hindi-source {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.45;
+    .button:hover {
+      opacity: 0.9;
     }
 
-    .word-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      min-height: 36px;
+    .footer {
+      margin-top: 25px;
+      color: #9aa0a6;
+      font-size: 12px;
     }
 
-    .word-pill,
-    .recent-pill {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      min-height: 34px;
-      padding: 7px 10px;
-      color: var(--ink);
-      background: #ffffff;
-      font-size: 0.92rem;
-      cursor: pointer;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .word-pill:hover,
-    .recent-pill:hover {
-      border-color: var(--green);
-      color: var(--green-dark);
-      background: var(--green-soft);
-      box-shadow: none;
-      transform: none;
-    }
-
-    .recent-pill {
-      color: var(--blue);
-      background: var(--blue-soft);
-    }
-
-    .state {
-      display: grid;
-      min-height: 390px;
-      place-items: center;
-      padding: 34px;
-      text-align: center;
-    }
-
-    .state-inner {
-      display: grid;
-      max-width: 440px;
-      gap: 12px;
-      justify-items: center;
-    }
-
-    .state-icon {
-      display: grid;
-      width: 58px;
-      height: 58px;
-      place-items: center;
-      border-radius: 8px;
-      color: var(--green);
-      background: var(--green-soft);
-    }
-
-    .state-icon.error {
-      color: var(--rose);
-      background: var(--rose-soft);
-    }
-
-    .state h2 {
-      margin: 0;
-      font-size: 1.45rem;
-    }
-
-    .state p,
-    .empty-text {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .source {
-      margin: 16px 0 0;
-      color: var(--muted);
-      font-size: 0.86rem;
-      text-align: center;
-    }
-
-    .source a {
-      color: var(--green-dark);
-    }
-
-    @media (max-width: 820px) {
-      .app {
-        width: min(100% - 22px, 1120px);
-        padding: 22px 0;
-      }
-
-      .topbar,
-      form,
-      main {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar {
-        display: grid;
-      }
-
+    @media (max-width: 480px) {
       h1 {
-        font-size: 2.18rem;
+        font-size: 23px;
       }
 
-      .word-title {
-        font-size: 2.18rem;
-      }
-
-      form > button {
-        width: 100%;
-      }
-
-      .result-head {
-        align-items: center;
-        padding: 20px;
-      }
-
-      .sections,
-      .mini-card {
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .brand {
-        align-items: flex-start;
-      }
-
-      .brand-icon {
-        width: 42px;
-        min-width: 42px;
-        height: 42px;
-      }
-
-      h1 {
-        font-size: 1.92rem;
-      }
-
-      .result-head {
-        display: grid;
-      }
-
-      .result-actions {
-        justify-content: flex-start;
+      .notice {
+        padding: 19px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="app">
-    <header>
-      <div class="topbar">
-        <div class="brand">
-          <div class="brand-icon" aria-hidden="true">
-            <i data-lucide="book-open-text"></i>
-          </div>
-          <div>
-            <h1>Word Meaning Finder</h1>
-            <p class="subtitle">English meaning, Hindi अर्थ, synonyms, antonyms.</p>
-          </div>
-        </div>
-        <span id="connectionStatus" class="status-badge">
-          <i data-lucide="wifi"></i>
-          Online
-        </span>
-      </div>
-    </header>
 
-    <section class="search-panel" aria-label="Dictionary search">
-      <form id="searchForm">
-        <label class="input-wrap">
-          <i data-lucide="search" aria-hidden="true"></i>
-          <input id="wordInput" type="search" placeholder="Type English or Hindi word" autocomplete="off" aria-label="Search word" />
-        </label>
-        <button id="searchButton" type="submit">
-          <i data-lucide="sparkles" aria-hidden="true"></i>
-          Search
-        </button>
-      </form>
-      <div class="quick-searches" aria-label="Example words">
-        <span class="chip" data-word="brave">brave</span>
-        <span class="chip" data-word="happy">happy</span>
-        <span class="chip" data-word="clean">clean</span>
-        <span class="chip" data-word="inspect">inspect</span>
-        <span class="chip" data-word="स्वच्छ">स्वच्छ</span>
-      </div>
-    </section>
+  <main class="container">
 
-    <main>
-      <section id="result" class="card word-card">
-        <div class="state">
-          <div class="state-inner">
-            <div class="state-icon" aria-hidden="true">
-              <i data-lucide="text-cursor-input"></i>
-            </div>
-            <h2>Ready</h2>
-            <p>Enter a word and press Search.</p>
-          </div>
-        </div>
-      </section>
+    <div class="icon">⌁</div>
 
-      <aside class="side" aria-label="Word relationships">
-        <section class="card mini-card">
-          <h2 class="mini-title"><i data-lucide="languages"></i> Hindi अर्थ</h2>
-          <div id="hindiMeaning">
-            <p class="empty-text">No word searched yet.</p>
-          </div>
-        </section>
+    <h1>Domain Temporarily Suspended</h1>
 
-        <section class="card mini-card">
-          <h2 class="mini-title"><i data-lucide="shuffle"></i> Synonyms</h2>
-          <div id="synonyms" class="word-list">
-            <p class="empty-text">No word searched yet.</p>
-          </div>
-        </section>
-
-        <section class="card mini-card">
-          <h2 class="mini-title"><i data-lucide="split"></i> Antonyms</h2>
-          <div id="antonyms" class="word-list">
-            <p class="empty-text">No word searched yet.</p>
-          </div>
-        </section>
-
-        <section class="card mini-card">
-          <h2 class="mini-title"><i data-lucide="network"></i> Related</h2>
-          <div id="relatedWords" class="word-list">
-            <p class="empty-text">No word searched yet.</p>
-          </div>
-        </section>
-
-        <section class="card mini-card">
-          <h2 class="mini-title"><i data-lucide="history"></i> Recent</h2>
-          <div id="recentSearches" class="word-list">
-            <p class="empty-text">No recent searches.</p>
-          </div>
-        </section>
-      </aside>
-    </main>
-
-    <p class="source">
-      Data from
-      <a href="https://dictionaryapi.dev/" target="_blank" rel="noreferrer">Free Dictionary API</a>,
-      <a href="https://www.datamuse.com/api/" target="_blank" rel="noreferrer">Datamuse</a>,
-      and
-      <a href="https://mymemory.translated.net/" target="_blank" rel="noreferrer">MyMemory</a>.
+    <p class="description">
+      This domain has been temporarily suspended because
+      the current domain service period has expired.
     </p>
-  </div>
 
-  <script>
-    const form = document.querySelector("#searchForm");
-    const input = document.querySelector("#wordInput");
-    const button = document.querySelector("#searchButton");
-    const result = document.querySelector("#result");
-    const hindiMeaningBox = document.querySelector("#hindiMeaning");
-    const synonymsBox = document.querySelector("#synonyms");
-    const antonymsBox = document.querySelector("#antonyms");
-    const relatedWordsBox = document.querySelector("#relatedWords");
-    const recentSearchesBox = document.querySelector("#recentSearches");
-    const connectionStatus = document.querySelector("#connectionStatus");
-    const quickSearches = document.querySelectorAll("[data-word]");
+    <div class="notice">
+      Service will be restored once the domain renewal
+      and associated service requirements have been completed.
 
-    const RECENT_KEY = "wordMeaningFinderRecent";
-    const HINDI_PATTERN = /[\u0900-\u097F]/;
+      <br>
 
-    const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, (char) => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#039;"
-    }[char]));
+      <a href="#" class="button" onclick="return false;">
+        Renew Domain &amp; Continue
+      </a>
+    </div>
 
-    const unique = (items) => {
-      const cleaned = items
-        .filter(Boolean)
-        .map((item) => String(item).trim().toLowerCase())
-        .filter((item) => item.length > 1);
-      return [...new Set(cleaned)].slice(0, 18);
-    };
+    <div class="footer">
+      Please check back later.
+    </div>
 
-    const cleanEnglishWord = (value) => {
-      const match = String(value).toLowerCase().match(/[a-z][a-z'-]*/);
-      return match ? match[0] : "";
-    };
+  </main>
 
-    const refreshIcons = () => {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    };
-
-    const setConnectionStatus = () => {
-      const online = navigator.onLine;
-      connectionStatus.classList.toggle("offline", !online);
-      connectionStatus.innerHTML = online
-        ? '<i data-lucide="wifi"></i> Online'
-        : '<i data-lucide="wifi-off"></i> Offline';
-      refreshIcons();
-    };
-
-    const fetchJson = async (url, timeoutMs = 12000) => {
-      const controller = new AbortController();
-      const timer = window.setTimeout(() => controller.abort(), timeoutMs);
-
-      try {
-        const response = await fetch(url, { signal: controller.signal });
-        if (!response.ok) {
-          throw new Error("No result found");
-        }
-        return response.json();
-      } finally {
-        window.clearTimeout(timer);
-      }
-    };
-
-    const translateText = async (text, langpair) => {
-      const cleanText = String(text || "").trim();
-      if (!cleanText || !navigator.onLine) {
-        return "";
-      }
-
-      try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleanText)}&langpair=${encodeURIComponent(langpair)}`;
-        const data = await fetchJson(url, 10000);
-        return data?.responseData?.translatedText || "";
-      } catch (error) {
-        return "";
-      }
-    };
-
-    const setLoading = (word) => {
-      button.disabled = true;
-      button.innerHTML = '<i data-lucide="loader-circle" aria-hidden="true"></i> Searching';
-      result.innerHTML = `
-        <div class="state">
-          <div class="state-inner">
-            <div class="state-icon" aria-hidden="true">
-              <i data-lucide="loader-circle"></i>
-            </div>
-            <h2>Searching ${escapeHtml(word)}</h2>
-            <p>Getting online dictionary data.</p>
-          </div>
-        </div>
-      `;
-      hindiMeaningBox.innerHTML = '<p class="empty-text">Translating...</p>';
-      synonymsBox.innerHTML = '<p class="empty-text">Searching...</p>';
-      antonymsBox.innerHTML = '<p class="empty-text">Searching...</p>';
-      relatedWordsBox.innerHTML = '<p class="empty-text">Searching...</p>';
-      refreshIcons();
-    };
-
-    const setError = (message) => {
-      result.innerHTML = `
-        <div class="state">
-          <div class="state-inner">
-            <div class="state-icon error" aria-hidden="true">
-              <i data-lucide="circle-alert"></i>
-            </div>
-            <h2>Result not found</h2>
-            <p>${escapeHtml(message)}</p>
-          </div>
-        </div>
-      `;
-      hindiMeaningBox.innerHTML = '<p class="empty-text">Hindi meaning unavailable.</p>';
-      synonymsBox.innerHTML = '<p class="empty-text">No synonyms found.</p>';
-      antonymsBox.innerHTML = '<p class="empty-text">No antonyms found.</p>';
-      relatedWordsBox.innerHTML = '<p class="empty-text">No related words found.</p>';
-      refreshIcons();
-    };
-
-    const renderWordList = (container, words, fallback) => {
-      if (!words.length) {
-        container.innerHTML = `<p class="empty-text">${fallback}</p>`;
-        return;
-      }
-
-      container.innerHTML = words
-        .map((word) => `<button class="word-pill" type="button" data-related="${escapeHtml(word)}">${escapeHtml(word)}</button>`)
-        .join("");
-    };
-
-    const collectDictionaryWords = (entries, field) => {
-      return entries.flatMap((entry) =>
-        (entry.meanings || []).flatMap((meaning) => [
-          ...(meaning[field] || []),
-          ...(meaning.definitions || []).flatMap((definition) => definition[field] || [])
-        ])
-      );
-    };
-
-    const getAudio = (entry) => {
-      const phonetics = entry.phonetics || [];
-      return phonetics.find((item) => item.audio)?.audio || "";
-    };
-
-    const getPhonetic = (entry) => {
-      return entry.phonetic || (entry.phonetics || []).find((item) => item.text)?.text || "";
-    };
-
-    const getFirstDefinition = (entry) => {
-      return (entry.meanings || []).flatMap((meaning) => meaning.definitions || [])[0]?.definition || "";
-    };
-
-    const renderDefinitions = (entry) => {
-      const blocks = (entry.meanings || []).slice(0, 6).map((meaning) => {
-        const definitions = (meaning.definitions || []).slice(0, 4).map((item) => {
-          const example = item.example ? `<span class="example">"${escapeHtml(item.example)}"</span>` : "";
-          return `<li>${escapeHtml(item.definition)}${example}</li>`;
-        }).join("");
-
-        if (!definitions) {
-          return "";
-        }
-
-        return `
-          <article class="meaning-block">
-            <span class="part">${escapeHtml(meaning.partOfSpeech || "meaning")}</span>
-            <ol>${definitions}</ol>
-          </article>
-        `;
-      }).join("");
-
-      return blocks || `
-        <div class="state">
-          <div class="state-inner">
-            <h2>No definition found</h2>
-            <p>Try another spelling or a simpler form of the word.</p>
-          </div>
-        </div>
-      `;
-    };
-
-    const renderHindiMeaning = ({ hindiWord, hindiDefinition, englishWord }) => {
-      if (!hindiWord && !hindiDefinition) {
-        hindiMeaningBox.innerHTML = '<p class="empty-text">Hindi meaning unavailable.</p>';
-        return;
-      }
-
-      hindiMeaningBox.innerHTML = `
-        <p class="hindi-word">${escapeHtml(hindiWord || englishWord)}</p>
-        <p class="hindi-definition">${escapeHtml(hindiDefinition || "Translation not available.")}</p>
-        <p class="hindi-source">Online translation result.</p>
-      `;
-    };
-
-    const renderResult = (entry, context) => {
-      const word = entry.word || context.lookupWord;
-      const phonetic = getPhonetic(entry);
-      const audio = getAudio(entry);
-      const audioButton = audio
-        ? `<button class="icon-button" type="button" data-audio="${escapeHtml(audio)}" title="Play pronunciation" aria-label="Play pronunciation"><i data-lucide="volume-2"></i></button>`
-        : "";
-      const lookupNote = context.originalWord !== context.lookupWord
-        ? `<span class="lookup-note">Searched as: ${escapeHtml(context.lookupWord)}</span>`
-        : "";
-
-      result.innerHTML = `
-        <div class="result-head">
-          <div>
-            <h2 class="word-title">${escapeHtml(word)}</h2>
-            <p class="phonetic">${phonetic ? escapeHtml(phonetic) : "Pronunciation unavailable"}</p>
-            ${lookupNote}
-          </div>
-          <div class="result-actions">
-            ${audioButton}
-            <button class="icon-button" type="button" data-copy="${escapeHtml(word)}" title="Copy word" aria-label="Copy word">
-              <i data-lucide="copy"></i>
-            </button>
-          </div>
-        </div>
-        <div class="sections">
-          ${renderDefinitions(entry)}
-        </div>
-      `;
-
-      refreshIcons();
-    };
-
-    const getRecentSearches = () => {
-      try {
-        return JSON.parse(localStorage.getItem(RECENT_KEY)) || [];
-      } catch (error) {
-        return [];
-      }
-    };
-
-    const saveRecentSearch = (word) => {
-      const cleanWord = String(word || "").trim();
-      if (!cleanWord) {
-        return;
-      }
-
-      const recent = getRecentSearches().filter((item) => item.toLowerCase() !== cleanWord.toLowerCase());
-      localStorage.setItem(RECENT_KEY, JSON.stringify([cleanWord, ...recent].slice(0, 8)));
-      renderRecentSearches();
-    };
-
-    const renderRecentSearches = () => {
-      const recent = getRecentSearches();
-      if (!recent.length) {
-        recentSearchesBox.innerHTML = '<p class="empty-text">No recent searches.</p>';
-        return;
-      }
-
-      recentSearchesBox.innerHTML = recent
-        .map((word) => `<button class="recent-pill" type="button" data-recent="${escapeHtml(word)}">${escapeHtml(word)}</button>`)
-        .join("");
-    };
-
-    const getLookupWord = async (rawWord) => {
-      const originalWord = rawWord.trim().replace(/\s+/g, " ");
-      if (HINDI_PATTERN.test(originalWord)) {
-        const translated = await translateText(originalWord, "hi|en");
-        return {
-          originalWord,
-          lookupWord: cleanEnglishWord(translated),
-          translatedFromHindi: translated
-        };
-      }
-
-      return {
-        originalWord,
-        lookupWord: cleanEnglishWord(originalWord),
-        translatedFromHindi: ""
-      };
-    };
-
-    const searchWord = async (rawWord) => {
-      const typedWord = rawWord.trim().replace(/\s+/g, " ");
-      if (!typedWord) {
-        input.focus();
-        return;
-      }
-
-      input.value = typedWord;
-      setConnectionStatus();
-
-      if (!navigator.onLine) {
-        setError("Internet is offline. Connect your laptop to the internet and search again.");
-        return;
-      }
-
-      setLoading(typedWord);
-
-      try {
-        const lookup = await getLookupWord(typedWord);
-        if (!lookup.lookupWord) {
-          throw new Error("Could not prepare lookup word");
-        }
-
-        const encoded = encodeURIComponent(lookup.lookupWord);
-        const [dictionaryData, datamuseSynonyms, datamuseAntonyms, datamuseRelated] = await Promise.all([
-          fetchJson(`https://api.dictionaryapi.dev/api/v2/entries/en/${encoded}`),
-          fetchJson(`https://api.datamuse.com/words?rel_syn=${encoded}&max=24`).catch(() => []),
-          fetchJson(`https://api.datamuse.com/words?rel_ant=${encoded}&max=24`).catch(() => []),
-          fetchJson(`https://api.datamuse.com/words?ml=${encoded}&max=18`).catch(() => [])
-        ]);
-
-        const entry = dictionaryData[0];
-        const firstDefinition = getFirstDefinition(entry);
-        const [hindiWord, hindiDefinition] = await Promise.all([
-          translateText(entry.word || lookup.lookupWord, "en|hi"),
-          translateText(firstDefinition, "en|hi")
-        ]);
-
-        const dictionarySynonyms = collectDictionaryWords(dictionaryData, "synonyms");
-        const dictionaryAntonyms = collectDictionaryWords(dictionaryData, "antonyms");
-        const synonymWords = datamuseSynonyms.map((item) => item.word);
-        const antonymWords = datamuseAntonyms.map((item) => item.word);
-        const relatedWords = datamuseRelated.map((item) => item.word);
-
-        renderResult(entry, lookup);
-        renderHindiMeaning({ hindiWord, hindiDefinition, englishWord: entry.word || lookup.lookupWord });
-        renderWordList(synonymsBox, unique([...dictionarySynonyms, ...synonymWords]), "No synonyms found.");
-        renderWordList(antonymsBox, unique([...dictionaryAntonyms, ...antonymWords]), "No antonyms found.");
-        renderWordList(relatedWordsBox, unique(relatedWords), "No related words found.");
-        saveRecentSearch(typedWord);
-      } catch (error) {
-        setError("Try another spelling, a simpler word, or check your internet connection.");
-      } finally {
-        button.disabled = false;
-        button.innerHTML = '<i data-lucide="sparkles" aria-hidden="true"></i> Search';
-        refreshIcons();
-      }
-    };
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      searchWord(input.value);
-    });
-
-    quickSearches.forEach((chip) => {
-      chip.addEventListener("click", () => searchWord(chip.dataset.word));
-    });
-
-    document.addEventListener("click", async (event) => {
-      const relatedButton = event.target.closest("[data-related]");
-      const recentButton = event.target.closest("[data-recent]");
-      const audioButton = event.target.closest("[data-audio]");
-      const copyButton = event.target.closest("[data-copy]");
-
-      if (relatedButton) {
-        searchWord(relatedButton.dataset.related);
-        return;
-      }
-
-      if (recentButton) {
-        searchWord(recentButton.dataset.recent);
-        return;
-      }
-
-      if (audioButton) {
-        const audioPlayer = new Audio(audioButton.dataset.audio);
-        audioPlayer.play();
-        return;
-      }
-
-      if (copyButton && navigator.clipboard) {
-        await navigator.clipboard.writeText(copyButton.dataset.copy);
-      }
-    });
-
-    window.addEventListener("online", setConnectionStatus);
-    window.addEventListener("offline", setConnectionStatus);
-
-    setConnectionStatus();
-    renderRecentSearches();
-    refreshIcons();
-  </script>
 </body>
 </html>
